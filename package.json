@@ -1,0 +1,35 @@
+{
+  "name": "mcbe-music-player",
+  "version": "0.1.0",
+  "description": "Minecraft Bedrock MP3 Music Player",
+  "main": "server/index.js",
+  "scripts": {
+    "build:server": "tsc -p server/tsconfig.json",
+    "compile:mc": "tsc -p minecraft/tsconfig.json",
+    "bundle:mc": "esbuild --bundle minecraft/src/index.ts --outfile=minecraft/dist/index.js --format=esm --external:@minecraft/sever",
+    "build:mc": "npm run compile:mc && npm run bundle:mc"
+  },
+  "keywords": [
+    "mc",
+    "mcbe",
+    "mcpe",
+    "minecraft",
+    "music",
+    "player",
+    "sound",
+    "ws",
+    "websocket"
+  ],
+  "author": "Kevin",
+  "license": "MIT",
+  "dependencies": {
+    "@minecraft/server": "^2.10.0",
+    "socket-be": "^2.8.0",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  }
+}
